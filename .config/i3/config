@@ -17,6 +17,7 @@
 
     exec --no-startup-id "setxkbmap -model pc105 -layout tr,us -option grp:alt_shift_toggle" 
     exec --no-startup-id "feh --randomize --bg-fill ~/Pictures/Wallpapers/*"
+
     # This font is widely installed, provides lots of unicode glyphs, right-to-left
     # text rendering and scalability on retina/hidpi displays (thanks to pango).
     #font pango:DejaVu Sans Mono 8
