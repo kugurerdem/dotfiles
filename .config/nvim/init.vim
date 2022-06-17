@@ -43,6 +43,8 @@ endfunction
 
 let g:mkdp_browser = 'brave'
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " VimWiki Config
 " Vim Wiki
