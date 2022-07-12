@@ -1,11 +1,9 @@
-browser "firefox %u"
-
 # general settings
 auto-reload yes
 max-items 50
 
 # externel browser
-browser "/usr/local/bin/w3m %u"
+browser "brave %u"
 macro m set browser "/usr/local/bin/mpv %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
 macro l set browser "/usr/local/bin/firefox %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
 
