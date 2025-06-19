@@ -1,4 +1,4 @@
-{...} :
+{pkgs, ...} :
 
 let
   nixvim = import (builtins.fetchGit {
@@ -36,11 +36,11 @@ in
       }
       {
         event = "BufWritePost";
-        pattern = "go";
+        pattern = "*.go";
         callback.__raw = ''
           function()
           -- Format on save
-          vim.cmd("!goimport -w % && gofmt -w %")
+          vim.cmd("!${pkgs.gotools}/bin/goimports -w % && ${pkgs.go}/bin/gofmt -w %")
           end
           '';
       }
@@ -174,17 +174,58 @@ in
 
     plugins.lsp = {
       enable = true;
+      inlayHints = true;
       servers = {
-        gopls = { enable = true; };
-        ts_ls = { enable = true; };
-        eslint = { enable = true; };
+        gopls.enable = true;
+        html.enable = true;
+        ts_ls.enable = true;
+        eslint.enable = true;
         rust_analyzer = {
           enable = true;
           installCargo = true;
           installRustc = true;
         };
-        lua_ls = { enable = true; };
-        nixd = { enable = true; };
+        lua_ls.enable = true;
+        nixd.enable = true;
+        bashls.enable = true;
+      };
+
+      keymaps = {
+        silent = true;
+        lspBuf = {
+          gd = {
+            action = "definition";
+            desc = "Goto Definition";
+          };
+          gr = {
+            action = "references";
+            desc = "Goto References";
+          };
+          gD = {
+            action = "declaration";
+            desc = "Goto Declaration";
+          };
+          gI = {
+            action = "implementation";
+            desc = "Goto Implementation";
+          };
+          gT = {
+            action = "type_definition";
+            desc = "Type Definition";
+          };
+          K = {
+            action = "hover";
+            desc = "Hover";
+          };
+          "<leader>cw" = {
+            action = "workspace_symbol";
+            desc = "Workspace Symbol";
+          };
+          "<leader>cr" = {
+            action = "rename";
+            desc = "Rename";
+          };
+        };
       };
     };
 
