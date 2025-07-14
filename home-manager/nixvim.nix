@@ -60,15 +60,15 @@ in
     ];
 
     extraConfigLua = ''
+      vim.opt.swapfile = false
       vim.opt.expandtab = true -- Converts tabs to white space
       vim.opt.tabstop = 4 -- Number of columns occupied by a tab
       vim.opt.softtabstop = 4 -- See multiple spaces as tabstops so <BS> does the right thing
       vim.opt.shiftwidth = 4 -- Width for autoindents
       vim.opt.list = true
       vim.opt.listchars = { trail = '@' }
-    vim.opt.number = true
+      vim.opt.number = true
       vim.opt.relativenumber = true
-
 
       local function soft_wrap()
       vim.wo.wrap = true
@@ -90,16 +90,17 @@ in
           'n', '<leader>n', ':noh<CR>', { noremap = true, silent = true })
 
       vim.diagnostic.config({
-          virtual_text = {
-          prefix = "●",      -- Symbol before the message
-          spacing = 4,       -- Space between code and message
-          source = "if_many" -- Show source name if multiple LSPs attach
-          },
-          })
+        virtual_text = {
+        prefix = "●",      -- Symbol before the message
+        spacing = 4,       -- Space between code and message
+        source = "if_many" -- Show source name if multiple LSPs attach
+        },
+      })
     '';
 
     colorschemes.catppuccin.enable = true;
-    plugins.lualine.enable = true;
+    plugins.airline.enable = true;
+    plugins.web-devicons.enable = true;
 
     plugins.vim-surround.enable = true;
     plugins.vim-css-color.enable = true;
@@ -170,7 +171,16 @@ in
         };
       };
     };
-    plugins.web-devicons.enable = true;
+
+    plugins.treesitter = {
+      enable = true;
+      settings = {
+        highlight.enable = true;
+        indent.enable = true;
+        incremental_selection.enable = true;
+        textobjects.enable = true;
+      };
+    };
 
     plugins.lsp = {
       enable = true;
