@@ -103,6 +103,17 @@ in
     plugins.web-devicons.enable = true;
 
     plugins.vim-surround.enable = true;
+    plugins.ts-autotag = {
+      enable = true;
+      settings = {
+        opts = {
+          enable_close = true;
+          enable_close_on_slash = false;
+          enable_rename = true;
+        };
+      };
+    };
+    plugins.nvim-autopairs.enable = true;
     plugins.vim-css-color.enable = true;
     plugins.markdown-preview.enable = true;
 
