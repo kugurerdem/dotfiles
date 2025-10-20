@@ -1,0 +1,29 @@
+[alias]
+    a = add
+    d = diff
+    dc = diff --cached
+    s = status -s
+    ss = status
+    cm = commit
+    b = branch
+    co = checkout
+    l = log
+    ls = log --show-signature
+
+[user]
+    email = k.ugurerdem@gmail.com
+    name = Ugur Erdem
+
+[core]
+    editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictStyle = zdiff3

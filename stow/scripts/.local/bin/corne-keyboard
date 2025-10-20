@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+setxkbmap -option ""
+setxkbmap -model pc104 -layout tr -variant alt
