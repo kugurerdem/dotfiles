@@ -1,0 +1,5 @@
+# dotfiles
+
+When I first started configuring my system, I was just using a regular dotfiles repo by having my home folder itself as a git repository. Those old configs can be found in my [legacy dotfiles repo](https://github.com/kugurerdem/legacy-dotfiles). Later, I wanted to try something more robust, so I gave Nix and NixOS a try, for the reasons mentioned in my [Switching from Arch to NixOS](https://rugu.dev/en/blog/nixos/) blog post. For that, I created this repo named `nix-config` and stored my Nix configurations.
+
+After a year of using NixOS, as I explain in my [Why I'm Leaving NixOS After a Year?](https://rugu.dev/en/blog/leaving-nixos/) blog post, I decided that it was introducing more problems than it solved for my particular needs. So, I ditched NixOS in favor of regular FHS-compliant Linux distributions, and dropped Home Manager in favor of simpler configuration tools like Stow. I renamed the old `nix-config` repository back to `dotfiles`, placed my latest Nix configs under the `nix-config` directory, and my current Stow-based configs under `stow`, so that anyone interested in my setup can benefit from or provide feedback on it.
