@@ -27,3 +27,8 @@ alias diary="$EDITOR $HOME/Documents/my/diary/$(date +%G).md"
 if type -q direnv
     direnv hook fish | source
 end
+
+# If zoxide is availabe hook it into the shell
+if type -q zoxide
+    zoxide init fish | source
+end
