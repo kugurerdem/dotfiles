@@ -56,7 +56,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # Killing windows
-bindsym $mod+x kill
+bindsym $mod+q kill
 
 # Toggle bar
 bindsym $mod+b bar mode toggle
