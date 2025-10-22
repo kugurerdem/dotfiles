@@ -1,7 +1,7 @@
 # Set mod key (Super)
 
 # Use Mod1 for LALT, Mod4 for LGUI
-set $mod Mod1
+set $mod Mod4
 
 # Font and Appearance
 font pango:monospace 12
