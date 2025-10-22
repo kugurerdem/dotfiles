@@ -1,0 +1,3 @@
+.gnupg
+stow/fish/.config/fish/fish_variables
+stow/scripts/.local/bin/claude
