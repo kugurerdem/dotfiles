@@ -32,6 +32,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+p exec --no-startup-id passmenu
 bindsym $mod+Shift+p exec --no-startup-id pass-otp-menu
 bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+m exec --no-startup-id xrandr-autoswitch.sh
 
 # Window focus and movement
 bindsym $mod+j focus down
@@ -101,5 +102,3 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer --allow-boost -i 5; p
 bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer --allow-boost -d 5; pkill -RTMIN+10 i3blocks;"
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
-
-bindsym $mod+Shift+r reload

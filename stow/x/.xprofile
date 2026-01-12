@@ -9,6 +9,7 @@ export QT_STYLE_OVERRIDE=Adwaita-Dark
 
 dunst &
 picom &
+xrandr-autoswitch.sh &
 wallpaper-manager &
 keyboard &
 volumeicon &
