@@ -6,15 +6,3 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_THEME=Adwaita:dark
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_STYLE_OVERRIDE=Adwaita-Dark
-
-dunst &
-picom &
-xrandr-autoswitch.sh &
-wallpaper-manager &
-keyboard &
-volumeicon &
-nm-applet &
-blueberry-tray &
-cbatticon &
-udiskie &
-picom &

@@ -10,6 +10,17 @@ font pango:monospace 12
 default_border pixel 1
 default_floating_border pixel 1
 
+# Autostart applications
+exec --no-startup-id dunst
+exec --no-startup-id picom
+exec --no-startup-id sh -c "xrandr-autoswitch.sh && wallpaper-manager"
+exec --no-startup-id keyboard
+exec --no-startup-id volumeicon
+exec --no-startup-id nm-applet
+exec --no-startup-id blueberry-tray
+exec --no-startup-id cbatticon
+exec --no-startup-id udiskie
+
 # Bar
 bar {
     status_command i3blocks
