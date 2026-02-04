@@ -34,6 +34,7 @@ fish_add_path -a $HOME/.config/herd-lite/bin
 set EDITOR nvim
 set VISUAL nvim
 set PAGER less
+set SHELL fish
 
 alias lg="lazygit"
 alias diary="$EDITOR $HOME/Documents/my/diary/$(date +%G).md"
