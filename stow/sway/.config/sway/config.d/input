@@ -9,6 +9,12 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+# Cursor theme for Sway/wlroots
+# Use an installed theme to avoid fallback issues.
+set $cursor_theme Qogir-Dark
+set $cursor_size 24
+seat * xcursor_theme $cursor_theme $cursor_size
+
 # Enable numlock by default
 input type:keyboard xkb_numlock enabled
 
