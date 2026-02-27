@@ -8,7 +8,7 @@ if ! command -v pacman >/dev/null 2>&1; then
 fi
 
 script_dir="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
-packages_file="$script_dir/sway/packages.txt"
+packages_file="$script_dir/packages.txt"
 
 if [ ! -f "$packages_file" ]; then
     printf '%s\n' "Package list not found: $packages_file" >&2
