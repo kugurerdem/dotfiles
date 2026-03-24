@@ -1,16 +1,15 @@
 # Auth with polkit-gnome:
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #
-# Import environment variables for user systemd service manager
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# Import session variables for user systemd services (portal, etc.)
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
 
-# Update dbus environments with display variables
+# Update dbus activation environment with session variables
 exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
 
 # Idle configuration
-exec swayidle idlehint 1
-exec_always swayidle -w before-sleep "gtklock -d"
+exec swayidle -w timeout 600 "gtklock -d" before-sleep "gtklock -d"
 
 # Desktop notifications
 exec mako
@@ -27,6 +26,9 @@ exec wl-paste --type image --watch cliphist store
      
 # Network Applet
 exec nm-applet --indicator
+
+# Nextcloud tray client
+exec nextcloud --background
 
 # Firewall Applet
 exec sleep 2 && firewall-applet
