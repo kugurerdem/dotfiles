@@ -42,7 +42,7 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
     bindsym $mod+f1 exec gtklock
 
     # Activities
-    bindsym $mod+p exec ~/.config/sway/scripts/window_switcher.sh
+    bindsym $mod+Tab exec ~/.config/sway/scripts/window_switcher.sh
 
     # Move windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -216,10 +216,13 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
 #
 # Screenshots
 #
+    # Copy a fullscreen screenshot to the clipboard
+    bindsym $mod+p exec grim - | wl-copy --type image/png
+    # Snip a selection and copy it to the clipboard
+    bindsym $mod+Shift+p exec grim -g "$(slurp)" - | wl-copy --type image/png
     # Snip a selection and pipe to swappy
     bindsym print exec grim -g "$(slurp)" - | swappy -f -
     # Screenshot a window and pipe to swappy
     bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
     # Screenshot the current display and pipe to swappy
     bindsym Shift+Print exec ~/.config/sway/scripts/screenshot_display.sh
-
