@@ -63,16 +63,7 @@ automatically-unhide-macos-hidden-apps = false
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
-    alt-enter = '''exec-and-forget osascript -e '
-    tell application "Ghostty"
-        if it is running then
-            activate
-            tell application "System Events" to keystroke "n" using {command down}
-        else
-            activate
-        end if
-    end tell
-    ' '''
+    alt-enter = 'exec-and-forget /opt/homebrew/bin/kitty --single-instance --detach'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
