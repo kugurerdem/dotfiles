@@ -1,3 +1,4 @@
 .gnupg
+.DS_Store
 stow/fish/.config/fish/fish_variables
 stow/scripts/.local/bin/claude
