@@ -311,7 +311,11 @@ theme "dracula"
 //   - true (default)
 //   - false
 // 
-// mouse_mode false
+mouse_mode true
+
+// Forward clicks into the pane after focusing it so TUIs like editors and file
+// pickers still receive the original mouse event.
+mouse_click_through true
  
 // Toggle having pane frames around the panes
 // Options:
