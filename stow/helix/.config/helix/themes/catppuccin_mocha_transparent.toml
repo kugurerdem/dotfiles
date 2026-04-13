@@ -1,0 +1,26 @@
+inherits = "catppuccin_mocha"
+
+"ui.background" = { fg = "text", bg = "default" }
+"ui.gutter" = { bg = "default" }
+"ui.gutter.selected" = { bg = "default" }
+"ui.linenr" = { fg = "surface1", bg = "default" }
+"ui.linenr.selected" = { fg = "lavender", bg = "default" }
+
+"ui.statusline" = { fg = "subtext1", bg = "default" }
+"ui.statusline.inactive" = { fg = "surface2", bg = "default" }
+"ui.statusline.normal" = { fg = "rosewater", bg = "default", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "green", bg = "default", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "lavender", bg = "default", modifiers = ["bold"] }
+
+"ui.bufferline" = { fg = "subtext0", bg = "default" }
+"ui.bufferline.active" = { fg = "mauve", bg = "default", underline = { color = "mauve", style = "line" } }
+"ui.bufferline.background" = { bg = "default" }
+
+"ui.popup" = { fg = "text", bg = "default" }
+"ui.help" = { fg = "overlay2", bg = "default" }
+"ui.menu" = { fg = "overlay2", bg = "default" }
+"ui.menu.selected" = { fg = "text", bg = "surface1", modifiers = ["bold"] }
+"ui.text.focus" = { fg = "text", bg = "default", modifiers = ["bold"] }
+
+"ui.virtual.ruler" = { bg = "default" }
+"ui.virtual.inlay-hint" = { fg = "surface1", bg = "default" }
