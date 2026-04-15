@@ -1,20 +1,52 @@
-# Disable greeting
+# Disable default Fish greeting
 set -g fish_greeting
 
-# Vi key bindings
+# Enable vi-style key bindings
 fish_vi_key_bindings
 
-# If fzf is available, create a utility for opening files through fzf in neovim
-if type -q fzf
-    function e
-        set file (fzf)
-        if test -n "$file"
-            nvim "$file"
-        end
-    end
+# Add user-level binaries to PATH
+fish_add_path -a $HOME/.local/bin
+fish_add_path -a $HOME/go/bin
+fish_add_path -a $HOME/.npm-global/bin
+fish_add_path -a $HOME/.config/herd-lite/bin
+
+# Determine Helix binary name per OS
+# On Linux: usually "helix"
+# On macOS: typically installed as "hx"
+set -gx HELIX helix
+if test (uname) = Darwin
+    set -gx HELIX hx
 end
 
-# If yazi is available, create a shell wrapper for it
+# Set default editor environment variables
+set EDITOR $HELIX
+set VISUAL $HELIX
+set PAGER less
+set SHELL fish
+
+# Git UI shortcut
+alias lg="lazygit"
+
+# Define "e" command based on selected editor:
+# - If using Helix: open current directory directly
+# - If using Vim/Neovim: use fzf to select a file
+switch $EDITOR
+    case $HELIX
+        # Fast directory open for Helix
+        alias e='$HELIX .'
+
+    case nvim vim
+        # Interactive file picker for Vim-based editors
+        function e
+            set file (fzf)
+            if test -n "$file"
+                $EDITOR "$file"
+            end
+        end
+end
+
+# Integrate yazi file manager with shell directory tracking
+# Changes current directory after exiting yazi
 if type -q yazi
     function y
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -26,26 +58,12 @@ if type -q yazi
     end
 end
 
-fish_add_path -a $HOME/.local/bin
-fish_add_path -a $HOME/go/bin
-fish_add_path -a $HOME/.npm-global/bin
-fish_add_path -a $HOME/.config/herd-lite/bin
-
-set EDITOR nvim
-set VISUAL nvim
-set PAGER less
-set SHELL fish
-
-alias lg="lazygit"
-alias diary="$EDITOR $HOME/Documents/my/diary/$(date +%G).md"
-
-# If direnv is available hook it into the shell
+# Hook direnv into Fish for automatic environment loading
 if type -q direnv
     direnv hook fish | source
 end
 
-# If zoxide is availabe hook it into the shell
+# Initialize zoxide for smarter directory navigation
 if type -q zoxide
     zoxide init fish | source
 end
-
