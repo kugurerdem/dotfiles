@@ -2,3 +2,13 @@ theme = "catppuccin_mocha_transparent"
 
 [editor]
 default-yank-register = "+"
+
+[keys.normal]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+D = "kill_to_line_end"
+
+[keys.select]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+D = "kill_to_line_end"

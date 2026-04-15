@@ -2,3 +2,22 @@
 name = "markdown"
 soft-wrap = { enable = true, wrap-at-text-width = true }
 text-width = 80 # You can adjust this number to your preference
+
+[[language]]
+name = "go"
+language-servers = ["gopls", "golangci-lint2-langserver"]
+formatter = { command = "goimports" }
+auto-format = true
+
+[language-server.golangci-lint2-langserver]
+command = "golangci-lint-langserver"
+
+[language-server.golangci-lint2-langserver.config]
+command = [
+  "golangci-lint",
+  "run",
+  "--output.json.path",
+  "stdout",
+  "--show-stats=false",
+  "--issues-exit-code=1",
+]
