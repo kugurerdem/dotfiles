@@ -18,14 +18,6 @@ return {
     ft = { 'markdown' },
   },
 
-  -- Treesitter Autotag
-  {
-    'windwp/nvim-ts-autotag',
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end
-  },
-
   -- CSS Color Preview
   { 'ap/vim-css-color' },
 
