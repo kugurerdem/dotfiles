@@ -21,3 +21,9 @@ command = [
   "--show-stats=false",
   "--issues-exit-code=1",
 ]
+
+[[language]]
+name = "c"
+auto-format = true
+formatter = { command = "clang-format", args = ["--style=file"] }
+  
