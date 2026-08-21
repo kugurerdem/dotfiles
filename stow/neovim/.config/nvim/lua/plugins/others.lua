@@ -1,4 +1,11 @@
 return {
+  -- Completion
+  {
+    'saghen/blink.cmp',
+    version = '1.*',
+    opts = { keymap = { preset = 'default' } },
+  },
+
   -- Autopairs
   { 'windwp/nvim-autopairs', config = function()
       require('nvim-autopairs').setup({})

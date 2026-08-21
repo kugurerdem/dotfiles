@@ -1,5 +1,4 @@
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.completeopt = { 'menu', 'popup', 'noselect' }
 vim.opt.swapfile = false
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
