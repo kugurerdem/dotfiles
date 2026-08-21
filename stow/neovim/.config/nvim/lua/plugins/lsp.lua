@@ -61,7 +61,7 @@ return {
           if vim.snippet.active({ direction = 1 }) then
             return '<Cmd>lua vim.snippet.jump(1)<CR>'
           end
-          return vim.fn['copilot#Accept']()
+          return '<Tab>'
         end), completion_opts)
         keymap('i', '<S-Tab>', completion_key('<C-p>', function()
           if vim.snippet.active({ direction = -1 }) then
