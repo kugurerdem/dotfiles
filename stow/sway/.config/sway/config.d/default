@@ -33,7 +33,7 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $launcher
+    bindsym $mod+space exec $launcher
 
     # Menu
     bindsym $mod+Shift+d exec $menu
@@ -135,7 +135,7 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+d focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
