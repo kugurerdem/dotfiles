@@ -143,6 +143,26 @@ return {
       })
     end
 
+    local function git_hunks(target, title)
+      local current_buffer = target == 0
+
+      require('gitsigns').setqflist(target, {
+        use_location_list = current_buffer,
+        nr = current_buffer and vim.api.nvim_get_current_win() or nil,
+        open = false,
+      }, function(err)
+        if err then
+          vim.notify(err, vim.log.levels.ERROR)
+          return
+        end
+
+        vim.schedule(function()
+          local picker = current_buffer and builtin.loclist or builtin.quickfix
+          picker({ prompt_title = title })
+        end)
+      end)
+    end
+
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', function()
@@ -158,7 +178,12 @@ return {
     end, { desc = '[S]earch Document [D]iagnostics' })
     vim.keymap.set('n', '<leader>sD', workspace_diagnostics, { desc = '[S]earch Workspace [D]iagnostics' })
     vim.keymap.set('n', '<leader>sj', builtin.jumplist, { desc = '[S]earch [J]umplist' })
-    vim.keymap.set('n', '<leader>sc', builtin.git_status, { desc = '[S]earch Git [C]hanges' })
+    vim.keymap.set('n', '<leader>sc', function()
+      git_hunks(0, 'Current Buffer Git Hunks')
+    end, { desc = '[S]earch Current Buffer Git Hunks' })
+    vim.keymap.set('n', '<leader>sC', function()
+      git_hunks('all', 'Workspace Git Hunks')
+    end, { desc = '[S]earch Workspace Git Hunks' })
     vim.keymap.set('n', '<leader>s/', builtin.current_buffer_fuzzy_find, { desc = '[S]earch Current Buffer' })
     vim.keymap.set('n', '<leader>s:', builtin.command_history, { desc = '[S]earch Command History' })
     vim.keymap.set('n', '<leader>s?', builtin.builtin, { desc = '[S]earch Picker Catalog' })

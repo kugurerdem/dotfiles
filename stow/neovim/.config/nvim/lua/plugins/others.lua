@@ -26,6 +26,9 @@ return {
   -- Vim Surround
   { 'tpope/vim-surround' },
 
+  -- Git change indicators
+  { 'lewis6991/gitsigns.nvim', opts = {} },
+
   -- Markdown Preview
   {
     'iamcco/markdown-preview.nvim',
