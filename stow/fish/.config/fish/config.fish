@@ -19,8 +19,8 @@ if test (uname) = Darwin
 end
 
 # Set default editor environment variables
-set EDITOR $HELIX
-set VISUAL $HELIX
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 set PAGER less
 set SHELL fish
 
