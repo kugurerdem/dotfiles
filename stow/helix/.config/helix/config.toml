@@ -6,9 +6,9 @@ default-yank-register = "+"
 [keys.normal]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
-D = "kill_to_line_end"
+D = ["extend_to_line_end", "delete_selection"]
 
 [keys.select]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
-D = "kill_to_line_end"
+D = ["extend_to_line_end", "delete_selection"]
