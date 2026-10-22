@@ -10,14 +10,6 @@ fish_add_path -a $HOME/go/bin
 fish_add_path -a $HOME/.npm-global/bin
 fish_add_path -a $HOME/.config/herd-lite/bin
 
-# Determine Helix binary name per OS
-# On Linux: usually "helix"
-# On macOS: typically installed as "hx"
-set -gx HELIX helix
-if test (uname) = Darwin
-    set -gx HELIX hx
-end
-
 # Set default editor environment variables
 set -gx EDITOR nvim
 set -gx VISUAL nvim
@@ -27,22 +19,12 @@ set SHELL fish
 # Git UI shortcut
 alias lg="lazygit"
 
-# Define "e" command based on selected editor:
-# - If using Helix: open current directory directly
-# - If using Vim/Neovim: use fzf to select a file
-switch $EDITOR
-    case $HELIX
-        # Fast directory open for Helix
-        alias e='$HELIX .'
-
-    case nvim vim
-        # Interactive file picker for Vim-based editors
-        function e
-            set file (fzf)
-            if test -n "$file"
-                $EDITOR "$file"
-            end
-        end
+# Open a file selected with fzf in Neovim
+function e
+    set file (fzf)
+    if test -n "$file"
+        $EDITOR "$file"
+    end
 end
 
 # Integrate yazi file manager with shell directory tracking
@@ -66,4 +48,8 @@ end
 # Initialize zoxide for smarter directory navigation
 if type -q zoxide
     zoxide init fish | source
+end
+
+if status is-interactive
+    atuin init fish | source
 end
