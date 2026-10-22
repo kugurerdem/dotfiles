@@ -1,2 +1,10 @@
 [window]
 opacity = 0.9
+
+[terminal]
+shell = "/usr/bin/fish"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
