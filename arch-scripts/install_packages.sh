@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 
 # System tools & utilities
-pacman -S --noconfirm neovim vi fasd fzf ripgrep moreutils tree zip unzip p7zip rsync hugo neofetch less man-db git lazygit git-delta
+pacman -S --noconfirm neovim vi fasd fzf ripgrep moreutils tree zip unzip p7zip rsync hugo less man-db git lazygit git-delta zoxide yazi ueberzugpp
 
 # Audio tools: Pipewire, pamixer, and pavucontrol
 pacman -S --noconfirm pamixer pavucontrol
 
 # X Server & i3-related stuff
-pacman -S --noconfirm i3-wm i3blocks i3lock i3status xsel xclip
+pacman -S --noconfirm i3-wm i3blocks i3lock i3status xsel xclip dmenu
 
 # Terminal & Shell setup
 pacman -S --noconfirm alacritty fish fisher
